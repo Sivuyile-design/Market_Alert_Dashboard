@@ -1,0 +1,28 @@
+{% extends "layout.html" %}
+{% block content %}
+<div class="row justify-content-center">
+  <div class="col-md-7">
+    <div class="card card-hero p-4">
+      <h2 class="mb-1">Welcome to Market Alert Dashboard</h2>
+      <p class="small-muted mb-3">Select your plan to get tailored alerts and access the dashboard.</p>
+      <form method="POST" class="row g-3">
+        <div class="col-md-7">
+          <input name="email" required type="email" class="form-control" placeholder="you@company.com">
+        </div>
+        <div class="col-md-3">
+          <select name="tier" class="form-select" required>
+            {% for k,v in tiers.items() %}
+              <option value="{{k}}">{{k}} — {{v.slots}} slots</option>
+            {% endfor %}
+          </select>
+        </div>
+        <div class="col-md-2">
+          <button class="btn btn-primary w-100">Enter</button>
+        </div>
+      </form>
+      <hr>
+      <p class="small-muted mb-0">Pro tip: Premium gives unlimited watchlist & alerts.</p>
+    </div>
+  </div>
+</div>
+{% endblock %}
